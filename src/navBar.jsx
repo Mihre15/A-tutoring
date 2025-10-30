@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu, X } from "lucide-react"; // npm install lucide-react
+import { Menu, X } from "lucide-react"; 
 import logo from "./assets/A+logo.png";
 
 export default function NavBar() {
@@ -8,7 +8,7 @@ export default function NavBar() {
 
   return (
     <nav className="relative z-50 bg-white/80 backdrop-blur-sm px-6 py-4 flex items-center justify-between">
-      {/* Left Section: Logo */}
+  
       <div className="flex items-center space-x-2">
         <img src={logo} alt="A+ Tutoring" className="w-20" />
         <div>
@@ -17,7 +17,7 @@ export default function NavBar() {
         </div>
       </div>
 
-      {/* Center Section: Desktop Menu */}
+      
       <ul className="hidden md:flex space-x-8 text-orange-500 font-semibold absolute left-1/2 transform -translate-x-1/2">
         <li><a href="#home" className="hover:text-blue-700">Home</a></li>
         <li><a href="#about" className="hover:text-blue-700">About</a></li>
@@ -25,7 +25,7 @@ export default function NavBar() {
         <li><a href="#contact" className="hover:text-blue-700">Contact</a></li>
       </ul>
 
-      {/* Right Section: Mobile Menu Icon */}
+      
       <div className="md:hidden">
         {open ? (
           <X size={28} className="text-orange-500 cursor-pointer" onClick={toggleMenu} />
@@ -34,7 +34,7 @@ export default function NavBar() {
         )}
       </div>
 
-      {/* Mobile Dropdown */}
+      
       {open && (
         <div className="absolute top-16 left-0 w-full bg-white/95 text-orange-500 font-semibold text-center space-y-4 py-4 shadow-lg md:hidden">
           <a href="#home" className="block hover:text-blue-700" onClick={toggleMenu}>Home</a>
