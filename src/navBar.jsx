@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "./assets/A+logo.png";
 import { Link } from "react-router-dom";
@@ -7,20 +7,19 @@ export default function NavBar() {
   const [open, setOpen] = useState(false);
   const [showNav, setShowNav] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const menuRef = useRef(null); // ref for mobile menu
 
   const toggleMenu = () => setOpen(!open);
 
+  // Handle scroll show/hide
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
-
-      // Show navbar when scrolling up or near top
       if (currentScroll < 100 || currentScroll < lastScrollY) {
         setShowNav(true);
       } else {
         setShowNav(false);
       }
-
       setLastScrollY(currentScroll);
     };
 
@@ -28,13 +27,30 @@ export default function NavBar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [open]);
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-sm transition-transform duration-500 ${
         showNav ? "translate-y-0" : "-translate-y-full"
       } px-6 py-4 flex items-center justify-between shadow-md`}
     >
-      {/* Logo Section */}
+      {/* Logo */}
       <div className="flex items-center space-x-2">
         <img src={logo} alt="A+ Tutoring" className="w-20" />
         <div>
@@ -62,7 +78,10 @@ export default function NavBar() {
 
       {/* Mobile Dropdown */}
       {open && (
-        <div className="absolute top-16 left-0 w-full bg-white/95 text-orange-500 font-semibold text-center space-y-4 py-4 shadow-lg md:hidden">
+        <div
+          ref={menuRef}
+          className="absolute top-16 left-0 w-full bg-white/95 text-orange-500 font-semibold text-center space-y-4 py-4 shadow-lg md:hidden"
+        >
           <li><Link to="/home" className="hover:text-blue-700" onClick={toggleMenu}>Home</Link></li>
           <li><a href="#about" className="hover:text-blue-700" onClick={toggleMenu}>About</a></li>
           <li><Link to="/services" className="hover:text-blue-700" onClick={toggleMenu}>Services</Link></li>
