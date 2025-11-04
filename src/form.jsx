@@ -32,7 +32,7 @@ const Form = () => {
   };
 
   const calculateEstimate = () => {
-    const rate = 400; // example birr/hour
+    const rate = 240; // example birr/hour
     const total = tutorial.daysPerWeek * tutorial.hoursPerDay * rate * 4;
     setEstimate(total || 0);
   };
