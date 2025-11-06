@@ -7,7 +7,11 @@ import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+aapp.use(cors({
+  origin: ["https://your-frontend.vercel.app"], 
+  credentials: true
+}));
+
 app.use(bodyParser.json());
 
 // Create SES client
