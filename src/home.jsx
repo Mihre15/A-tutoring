@@ -1,13 +1,21 @@
 import React from "react";
-import {useEffect } from "react"
-import bg from "./assets/bg.jpg"
-import { Link } from "react-router-dom"
-import { Swiper ,SwiperSlide } from "swiper/react"
-import { Pagination, Autoplay } from "swiper/modules"
-import "swiper/css"
-import "swiper/css/pagination"
-import AOS from "aos"
-import "aos/dist/aos.css"
+import {useEffect } from "react";
+import bg from "./assets/bg.jpg";
+import eyuel from "./assets/tutors/eyuel.jpg";
+import mujib from "./assets/tutors/mujib.jpg";
+import hana from "./assets/tutors/hana.jpg";
+import zinet from "./assets/tutors/zinet.jpg";
+import habtamu from "./assets/tutors/habtamu.jpg";
+import mahilet from "./assets/tutors/mahilet.jpg";
+import profile from "./assets/tutors/profile.jpeg";
+import sisaynesh from "./assets/tutors/sisaynesh.jpg";
+import { Link } from "react-router-dom";
+import { Swiper ,SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function Home() {
   useEffect(() => {
   AOS.init({
@@ -17,45 +25,63 @@ export default function Home() {
 }, []);
   const tutors = [
     {
-      name: "ayalech",
-      subject: "Mathematics,, physics, chemistry",
-      image: "https://via.placeholder.com/150",
-      bio: "Experienced math tutor with 5+ years helping students ace their exams."
+      name: "Eyuel Zenebe",
+      subject: "Subjects: All",
+      image:eyuel,
+      bio: "Process Engineer, GPA:3.53, Address:Tuludimtu"
     },
     {
-      name: "Sarah w/mariyam",
-      subject: "English, spelling, applitude",
-      image: "https://via.placeholder.com/150",
-      bio: "Specialist in grammar and writing improvement for high school students."
+      name: "Hana Sisay",
+      subject: "Subjects: All",
+      image: hana,
+      bio: "Law, GPA:3.53, Address:CMC,  GRADE 7 and 6"
     },
     {
-      name: "Daniel esayas",
-      subject: "Physics, math, chemistry",
-      image: "https://via.placeholder.com/150",
-      bio: "Passionate about making physics simple and fun through experiments."
+      name: "Mujib Sultan",
+      subject: "Subjects: All",
+      image: mujib,
+      bio: "Biomedical Engineer 4/612/3.5 Mexico/grade 5&6 "
     },
     {
-      name: "Daniel esayas",
-      subject: "Physics, math, chemistry",
-      image: "https://via.placeholder.com/150",
-      bio: "Passionate about making physics simple and fun through experiments."
+      name: "Zinet Kedir",
+      subject: "Subjects: All",
+      image: zinet,
+      bio: "4/597/3.29 pharmacy /Megenagna /grade 8"
+    },
+    {
+      name: "Habtamu Belete",
+      subject: "Subjects: All",
+      image: habtamu,
+      bio: "510/3.54 Chemistry/ Grade 9 /Teacher Lebu musika bet"
+    },
+    {
+      name: "Mahilet Zelalem ",
+      subject: "Subjects: All",
+      image: mahilet,
+      bio: "4/554/3.3 ayat 49/Economics /Cambridge International grade 1 and 3"
+    },
+    {
+      name: "Doctor Sisaynesh Tarkegn ",
+      subject: "Subjects: All",
+      image: sisaynesh,
+      bio: "4/456/3.86 Gerji /grade 3"
     },
   ];
 
   const testimonials = [
     {
       name: "Emily R.",
-      image: "https://via.placeholder.com/100",
+      image: profile,
       text: "A+ Tutoring really helped me improve my math grade. Highly recommended!"
     },
     {
       name: "Michael B.",
-      image: "https://via.placeholder.com/100",
+      image: profile,
       text: "My tutor was patient and explained everything clearly. Great experience!"
     },
     {
       name: "Sophia T.",
-      image: "https://via.placeholder.com/100",
+      image: profile,
       text: "They genuinely care about your progress. I felt supported all the way!"
     }
   ];
@@ -113,7 +139,7 @@ export default function Home() {
           >
             {testimonials.map((t, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-orange-50 p-8 rounded-2xl shadow-md text-center">
+                <div className=" bg-black/5 p-8 rounded-2xl shadow-md text-center">
                   <img
                     src={t.image}
                     alt={t.name}

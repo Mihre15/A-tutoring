@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
-  const [showNav, setShowNav] = useState(false);
+  const [showNav, setShowNav] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const menuRef = useRef(null); // ref for mobile menu
 
@@ -62,7 +62,7 @@ export default function NavBar() {
       {/* Desktop Menu */}
       <ul className="hidden md:flex space-x-8 text-orange-500 font-semibold absolute left-1/2 transform -translate-x-1/2">
         <li><Link to="/home" className="hover:text-blue-700">Home</Link></li>
-        <li><a href="#about" className="hover:text-blue-700">About</a></li>
+        <li><Link to="/about" className="hover:text-blue-700">About</Link></li>
         <li><Link to="/services" className="hover:text-blue-700">Services</Link></li>
         <li><Link to="/contact" className="hover:text-blue-700">Contact</Link></li>
       </ul>
@@ -83,7 +83,7 @@ export default function NavBar() {
           className="absolute top-16 left-0 w-full bg-white/95 text-orange-500 font-semibold text-center space-y-4 py-4 shadow-lg md:hidden"
         >
           <li><Link to="/home" className="hover:text-blue-700" onClick={toggleMenu}>Home</Link></li>
-          <li><a href="#about" className="hover:text-blue-700" onClick={toggleMenu}>About</a></li>
+          <li><Link to="/about" className="hover:text-blue-700" onClick={toggleMenu}>About</Link></li>
           <li><Link to="/services" className="hover:text-blue-700" onClick={toggleMenu}>Services</Link></li>
           <li><Link to="/contact" className="hover:text-blue-700" onClick={toggleMenu}>Contact</Link></li>
         </div>

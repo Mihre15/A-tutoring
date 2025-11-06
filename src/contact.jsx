@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import {
+  Mail,
+  Phone,
+  Send,
+  Share2, // for "Social Links" title icon
+} from "lucide-react";
 import contactBg from "./assets/bg.jpg";
 
 export default function Contact() {
@@ -46,54 +52,122 @@ export default function Contact() {
       style={{ backgroundImage: `url(${contactBg})` }}
     >
       <div className="bg-white/90 backdrop-blur-md rounded-3xl shadow-lg p-10 w-full max-w-4xl md:grid md:grid-cols-2 gap-8">
-        
         {/* LEFT SIDE */}
         <div data-aos="fade-right" className="flex flex-col justify-center">
-          <h2 className="text-4xl font-bold text-orange-500 mb-4">Get in Touch</h2>
+          <h2 className="text-4xl font-bold text-orange-500 mb-4">
+            Get in Touch
+          </h2>
           <p className="text-gray-600 mb-6">
-            Have questions or need a tutor? Fill out the form and we’ll get back to you as soon as possible.
+            Have questions or need a tutor? Fill out the form and we’ll get back
+            to you as soon as possible.
           </p>
-          <div className="space-y-3 text-gray-700">
-            <p><span className="font-semibold text-orange-600">Email:</span> aplustutoringet@gmail.com</p>
-            <p><span className="font-semibold text-orange-600">Phone:</span> +251905904444</p>
-            <p><span className="font-semibold text-orange-600">Telegram:</span> https://t.me/Aplustutoringeth</p>
+
+          <div className="space-y-5 text-gray-700">
+            {/* Email */}
+            <div className="flex items-center gap-3">
+              <Mail className="text-orange-600 w-6 h-6" />
+              <a
+                href="mailto:aplustutoringet@gmail.com"
+                className="font-semibold text-gray-800 hover:text-orange-600 transition"
+              >
+                aplustutoringet@gmail.com
+              </a>
+            </div>
+
+            {/* Phone */}
+            <div className="flex items-center gap-3">
+              <Phone className="text-orange-600 w-6 h-6" />
+              <a
+                href="tel:+251905904444"
+                className="font-semibold text-gray-800 hover:text-orange-600 transition"
+              >
+                +251905904444
+              </a>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex flex-col gap-3 mt-4">
+              {/* Title with globe icon */}
+              <div className="flex items-center gap-2">
+                <Share2 className="text-orange-600 w-6 h-6" />
+                <h3 className="text-gray-800 font-semibold text-lg">
+                  Social Links
+                </h3>
+              </div>
+
+              {/* Icons */}
+              <div className="flex items-center gap-4 ml-8">
+                {/* Telegram */}
+                <div className="relative group">
+                  <a
+                    href="https://t.me/Aplustutoringeth"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-700 hover:text-orange-600 transition"
+                  >
+                    <Send className="w-7 h-7" />
+                  </a>
+
+                  {/* Tooltip */}
+                  <span className="absolute left-1/2 -translate-x-1/2 -top-8 text-sm bg-gray-800 text-white px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
+                    Telegram
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* RIGHT SIDE (FORM) */}
-        <form onSubmit={handleSubmit} data-aos="fade-left" className="space-y-4 mt-8 md:mt-0">
+        <form
+          onSubmit={handleSubmit}
+          data-aos="fade-left"
+          className="space-y-4 mt-8 md:mt-0"
+        >
           <div>
-            <label className="block text-gray-700 font-semibold mb-1">Full Name</label>
+            <label className="block text-gray-700 font-semibold mb-1">
+              Full Name
+            </label>
             <input
               type="text"
               required
               placeholder="Your name"
               value={contact.name}
-              onChange={(e) => setContact({ ...contact, name: e.target.value })}
+              onChange={(e) =>
+                setContact({ ...contact, name: e.target.value })
+              }
               className="w-full p-3 rounded-xl border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none"
             />
           </div>
 
           <div>
-            <label className="block text-gray-700 font-semibold mb-1">Email</label>
+            <label className="block text-gray-700 font-semibold mb-1">
+              Email
+            </label>
             <input
               type="email"
               required
               placeholder="Your email"
               value={contact.email}
-              onChange={(e) => setContact({ ...contact, email: e.target.value })}
+              onChange={(e) =>
+                setContact({ ...contact, email: e.target.value })
+              }
               className="w-full p-3 rounded-xl border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none"
             />
           </div>
 
           <div>
-            <label className="block text-gray-700 font-semibold mb-1">Message</label>
+            <label className="block text-gray-700 font-semibold mb-1">
+              Message
+            </label>
             <textarea
               required
               placeholder="Write your message..."
               rows="4"
               value={contact.message}
-              onChange={(e) => setContact({ ...contact, message: e.target.value })}
+              onChange={(e) =>
+                setContact({ ...contact, message: e.target.value })
+              }
               className="w-full p-3 rounded-xl border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none resize-none"
             ></textarea>
           </div>
@@ -106,7 +180,9 @@ export default function Contact() {
           </button>
 
           {status && (
-            <p className="mt-2 text-center text-gray-700 font-semibold">{status}</p>
+            <p className="mt-2 text-center text-gray-700 font-semibold">
+              {status}
+            </p>
           )}
         </form>
       </div>
