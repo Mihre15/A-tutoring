@@ -1,7 +1,7 @@
 import React from "react";
 import { Mail, Phone, Send } from "lucide-react"; 
 import { Link } from "react-router-dom";
-import { FaTelegramPlane, FaTiktok } from "react-icons/fa";
+import { FaTelegramPlane, FaTiktok, FaFacebook, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -21,12 +21,28 @@ export default function Footer() {
               <FaTelegramPlane size={24} />
             </a>
             <a
-              href="https://www.tiktok.com/@yourTikTokUsername"
+              href="https://www.tiktok.com/@aplustutoring2025?_t=ZM-8vH5C8UJlMj&_r=1"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-pink-400 transition"
             >
               <FaTiktok size={24} />
+            </a>
+             <a
+              href="https://www.youtube.com/%40APlusTutoring-Ethio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-red-400 transition"
+            >
+              <FaYoutube size={24} />
+            </a>
+             <a
+              href="https://web.facebook.com/share/p/167YpokHab/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-500 transition"
+            >
+              <FaFacebook size={24} />
             </a>
           </div>
         </div>

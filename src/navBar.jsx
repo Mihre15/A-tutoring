@@ -51,13 +51,16 @@ export default function NavBar() {
       } px-6 py-4 flex items-center justify-between shadow-md`}
     >
       {/* Logo */}
-      <div className="flex items-center space-x-2">
+      <Link to={"/"}>
+       <div className="flex items-center space-x-2">
         <img src={logo} alt="A+ Tutoring" className="w-20" />
         <div>
           <h1 className="font-bold text-xl text-blue-700">Tutoring</h1>
           <p className="text-xs text-gray-600">Learn, Grow, Achieve</p>
         </div>
       </div>
+      </Link>
+      
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex space-x-8 text-orange-500 font-semibold absolute left-1/2 transform -translate-x-1/2">
